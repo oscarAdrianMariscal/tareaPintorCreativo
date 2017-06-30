@@ -47,3 +47,13 @@ ademas me atore un poco, las instrucciones estan un poco dificil de entender, as
 	¿Qué guías de diseño/desarrollo estoy siguiendo? ¿De qué manera?
 	
 	¿En qué sentido estoy aplicando pensamiento computacional?
+	
+	Hora 6,
+	¿Qué estoy haciendo?
+Me estuve peleando mucho con la parte del posicionamiento de imagenes
+	¿En qué estoy atorado? ¿Cómo estoy tratando de resolver el problema?
+Estoy atorado con la parte del posicionamiento de imagenes. para hacer que pintara la imagen creeun metodo de crear figura, esta parsea una parte de la orden con una expresion regular, dibuja una parte y se vuelve a llamar a si misma con dimensiones y cordenadas diferentes.
+	¿Qué guías de diseño/desarrollo estoy siguiendo? ¿De qué manera?
+Trate de hacer algo de recursion.
+	¿En qué sentido estoy aplicando pensamiento computacional?
+Estoy utilizandolo para la parte de recursion. reconocer que la parte de dibujar una imagen. es algo que se repite, que con recursion puedo hacer el problema sin tener que programar todas las posibles convinaciones que puede tener la imagen.

@@ -2,7 +2,7 @@ const X=400;
 const Y=400;
 
 function setup() {
-	createCanvas(X,Y);
+	createCanvas(X*2,Y*2);
 }
 /*
 function dibujarBandera(x,y,ancho,alto) {
@@ -29,89 +29,154 @@ function draw() {
     */
     
     if (document.getElementById("ordenes").value){
-        
         console.info("Imagen");
+        clear();
         crearFigura(X,Y,X/2,Y/2,document.getElementById("ordenes").value);
-        
         
     }
 }
 
 function crearFigura(espacioX,espacioY,cordenadaX,cordenadaY,orden){
     //()
-        var circulo = /\((\w*)\s(\w*)(.*)\)/g;
-        var testCirculo = /\((\w*)\s(\w*)(.*)\)/g;
+        var circulo = /^\((\w*)\s(\w*)(.*)\)/g;
+        var testCirculo = /^\((\w*)\s(\w*)(.*)\)/g;
     //[]
-        var cuadrado = /\[(\w*)\s(\w*)(.*)\]/g;
-        var testCuadrado = /\[(\w*)\s(\w*)(.*)\]/g;
+        var cuadrado = /^\[(\w*)\s(\w*)(.*)\]/g;
+        var testCuadrado = /^\[(\w*)\s(\w*)(.*)\]/g;
     //<>
-        var horizontal = /\<([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\>/g;
-        var testHorizontal = /\<([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\>/g;
+        var horizontal = /^\<([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\>/g;
+        var testHorizontal = /^\<([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\>/g;
     //{}
     
-        var vertical = /\{([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\}/g;
-        var testVertical = /\{([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\}/g;
+        var vertical = /^\{([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\}/g;
+        var testVertical = /^\{([\(\[].*?[\)\]])([\(\[].*?[\)\]])?([\(\[].*?[\)\]])?\}/g;
 
     
         if (testHorizontal.test(orden)){
             var match = horizontal.exec(orden);
-            var relleno = match[1];
-            var borde = match[2];
-            var orden = match[3];
-            console.log("Dibujar una lista con horizontal con ");
+            console.log("Dibujar una lista vertical con  ");
             var i=1;
-            grupo = match[i];
+            var tamanio=1;
+            grupo = match[1];
+            
+            while (grupo != null) {
+                tamanio++;
+                grupo=match[tamanio];
+            }
+            
+            grupo = match[1];
+            var xTamanio = espacioX/tamanio;
+            var yTamanio = espacioY/tamanio;
             while (grupo != null) {
                 console.log(grupo);
-                crearFigura(espacioX/3*i,espacioY/3*i,cordenadaX/3*i,cordenadaY/3*i,match[i]);
+                crearFigura(xTamanio,yTamanio,espacioX+espacioX/tamanio*i,espacioY+espacioY /tamanio*1,match[i]);
                 i++;
                 grupo = match[i];
             }
                         
 
         }
+    
         else if (testVertical.test(orden)){
             var match = vertical.exec(orden);
-            var relleno = match[1];
-            var borde = match[2];
-            var orden = match[3];
             console.log("Dibujar una lista vertical con  ");
             var i=1;
-            grupo = match[i];
+            var tamanio=1;
+            grupo = match[1];
+            
+            while (grupo != null) {
+                tamanio++;
+                grupo=match[tamanio];
+            }
+            
+            grupo = match[1];
+            var xTamanio = espacioX/tamanio;
+            var yTamanio = espacioY/tamanio;
             while (grupo != null) {
                 console.log(grupo);
-                crearFigura(espacioX/3*i,espacioY/3*i,cordenadaX/3*i,cordenadaY/3*i,match[i]);
+                crearFigura(xTamanio,yTamanio,espacioX+espacioX/2,espacioY+espacioY/tamanio*i,match[i]);
                 i++;
                 grupo = match[i];
             }
 
         }
+        
         else if (testCirculo.test(orden)){
             var match = circulo.exec(orden);
             var relleno = match[1];
             var borde = match[2];
-            var orden = match[3];
-            console.log("dibujar Un Circulo"+espacioX+";"+espacioY);
-            crearFigura(cordenadaX,cordenadaY,espacioX,espacioY,orden );
+            var subOrden = match[3].trim();
+            var testCuadradoTemp = /\[(\w*)\s(\w*)(.*)\]/g;
+            var testCirculoTemp = /\((\w*)\s(\w*)(.*)\)/g;
+            console.log(subOrden);
+            if (testCirculoTemp.test(subOrden) || testCuadradoTemp.test(subOrden)){
+                
+                fill (relleno);
+                stroke(borde);
+                strokeWeight(2);
+                ellipse(cordenadaX,cordenadaY ,espacioX);
+                crearFigura(espacioX/2,espacioY/2,cordenadaX+(cordenadaX/10)*2,cordenadaY + (cordenadaY/10)*2,subOrden);
+            }
+            else{
+                
+                fill (relleno);
+                stroke(borde);
+                strokeWeight(2);
+                ellipse(cordenadaX,cordenadaY,espacioX);
+                crearFigura(cordenadaX,cordenadaY,espacioX,espacioY,subOrden);
+            }
             
-            fill (relleno);
-            stroke(borde);
-            strokeWeight(2);
-            ellipse(cordenadaX,cordenadaY,espacioX);
 
         }
         else if (testCuadrado.test(orden)){
             var match = cuadrado.exec(orden);
             var relleno = match[1];
             var borde = match[2];
-            var orden = match[3];
-            console.log("dibujar Un Cuadrado"+espacioX+";"+espacioY);
-            crearFigura(cordenadaX,cordenadaY,espacioX,espacioY,orden );
+            var subOrden = match[3].trim();
+            var testCuadradoTemp = /\[(\w*)\s(\w*)(.*)\]/g;
+            var testCirculoTemp = /\((\w*)\s(\w*)(.*)\)/g;
             
-            fill (relleno);
-            stroke(borde);
-            strokeWeight(2);
-            rect(cordenadaX,cordenadaY,espacioX,espacioY);
+            if (testCirculoTemp.test(subOrden) ){
+                console.log(subOrden);
+                fill (relleno);
+                stroke(borde);
+                strokeWeight(2);
+                rect(cordenadaX,cordenadaY ,espacioX,espacioY);
+                crearFigura(espacioX/2,espacioY/2,cordenadaX+espacioX/2+(cordenadaX/10)*2,cordenadaY + espacioX/2+(cordenadaY/10)*2,subOrden);
+            }
+            else if ( testCuadradoTemp.test(subOrden)){
+                console.log(subOrden);
+                fill (relleno);
+                stroke(borde);
+                strokeWeight(2);
+                rect(cordenadaX,cordenadaY ,espacioX,espacioY);
+                crearFigura(espacioX/2,espacioY/2,cordenadaX+(cordenadaX/10)*2,cordenadaY + (cordenadaY/10)*2,subOrden);
+            }
+            else{
+                
+                fill (relleno);
+                stroke(borde);
+                strokeWeight(2);
+                rect(cordenadaX,cordenadaY ,espacioX,espacioY);
+                crearFigura(cordenadaX,cordenadaY,espacioX/2,espacioY/2,subOrden);
+            }
             
+
         }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

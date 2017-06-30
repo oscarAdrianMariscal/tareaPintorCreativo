@@ -206,7 +206,7 @@ function crearPintura(){
             pintura +="]";
             break;
         case LISTA_HORIZONTAL: //lista de pinturas
-            var cantidadDePinturas = Math.floor((Math.random() * 4)+1);
+            var cantidadDePinturas = Math.floor((Math.random() * 3)+1);
             pintura +="<";
             for (var i = 0; i< cantidadDePinturas ;i++){
                 var cuadradoOCirculo = Math.floor((Math.random() * 2));
@@ -223,7 +223,7 @@ function crearPintura(){
             
             break;
         case LISTA_VERTICAL: //lista de pinturas
-            var cantidadDePinturas = Math.floor((Math.random() * 4)+1);
+            var cantidadDePinturas = Math.floor((Math.random() * 3)+1);
             pintura +="{";
             for (var i = 0; i< cantidadDePinturas ;i++){
                 var cuadradoOCirculo = Math.floor((Math.random() * 2));
