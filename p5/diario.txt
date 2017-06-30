@@ -1,0 +1,49 @@
+Hora 2,
+	¿Qué estoy haciendo?
+En esta hora me la tome para aprender processing y hacer un "hello wordl".
+	¿En qué estoy atorado? ¿Cómo estoy tratando de resolver el problema?
+Ahorita me estoy concentrando en aprender, así que no me siento "atorado"
+	¿Qué guías de diseño/desarrollo estoy siguiendo? ¿De qué manera?
+Generalmente he encontrado que me gusta aprender lo que "ocupo" y despues hacer el trabajo, conozco a personas que es diferente que les gusta aprender haciendo.
+	¿En qué sentido estoy aplicando pensamiento computacional?
+Ahorita siento que lo estoy aplicando, un aproximamiento bottom-up tratando de hacer funciones "generales" que despues uso para resolver el problema. 
+
+-----Hora 3----------,
+	¿Qué estoy haciendo?
+Estoy tratando de hacer un generador de "pinturas", es decir nomas la parte del lenguaje. Ademas estoy pensado en la parte de parseo del lenguaje
+	¿En qué estoy atorado? ¿Cómo estoy tratando de resolver el problema?
+El "lenguaje" es mas o menos así 
+	//circulo ()
+    // colorDeLLenado colorDeBorde ?Pintura
+    //cuadrado []
+    // colorDeLLenado colorDeBorde ?Pintura
+    //lista de pinturas <>
+    //1..N cantidad de pinturas
+	
+	¿Qué guías de diseño/desarrollo estoy siguiendo? ¿De qué manera?
+	
+	¿En qué sentido estoy aplicando pensamiento computacional?
+Estoy dividiendo el problema de generar el lenguaje en problamas mas pequeños en problemas mas pequeños
+
+Hora 4,
+	¿Qué estoy haciendo?
+Ya cree una version del "creativo", tuve que usar recursion para hacer que se cerraran las llaves de manera correcta
+	¿En qué estoy atorado? ¿Cómo estoy tratando de resolver el problema?
+Con la parte de las llaves "<>", ahorita no puede crear ordenes que tengan <()()[]> , solo puede anidar dibujos ej; "(A B (S D ))"
+	
+	¿Qué guías de diseño/desarrollo estoy siguiendo? ¿De qué manera?
+	
+	¿En qué sentido estoy aplicando pensamiento computacional?
+Estoy usando un poco de recursion para poder "hacer" el lenguaje. 
+	
+Hora 5,
+	¿Qué estoy haciendo?
+Sigo con la parte del creativo, lo estoy terminando, ya esta "creando" las pinturas como deberia
+	¿En qué estoy atorado? ¿Cómo estoy tratando de resolver el problema?
+Me atore un poco con la parte de las llaves "[]{}", pero lo puede resolver creando otra funcion.
+ademas me atore un poco, las instrucciones estan un poco dificil de entender, así que cuando creí que habia terminado la parte "creativa" del pragrama, me di cuenta que me faltaba un poquito mas.
+
+	
+	¿Qué guías de diseño/desarrollo estoy siguiendo? ¿De qué manera?
+	
+	¿En qué sentido estoy aplicando pensamiento computacional?
