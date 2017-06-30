@@ -270,38 +270,7 @@ function dameUnCirculo(){
 }
 
 
-/*
-function crearUnaLista(){
-    var eleccion = Math.floor((Math.random() * 3));
-    while (numeroDeOrdenLista===0 && eleccion ===2){
-        eleccion=Math.floor((Math.random() * 3));
-    }
-    switch (eleccion) {
-        case CIRCULO: //circulo
-            lista +="(";
-            lista += obtenerColorRandom();
-            lista +=" ";
-            lista +=obtenerColorRandom();
-            lista +=" ";
-            lista +=")";
-            numeroDeOrdenLista++;
-            crearUnaLista();
-            
-            break;
-        case CUADRADO: //cuadrado
-            lista +="[";
-            lista += obtenerColorRandom();
-            lista +=" ";
-            lista +=obtenerColorRandom();
-            lista +=" ";
-            lista +="]";
-            numeroDeOrdenLista++;
-            crearUnaLista();
-            break;
-        case 2: //Nothing
-            break;
-    }
-}*/
+
 //Se que es ineficiente, y problablemente deberua usar busqueda binaria
 function encontrarColor(nombre){
     for ( var i = 0 ; i < DATA.length; i++){
